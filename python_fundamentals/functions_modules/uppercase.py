@@ -3,8 +3,8 @@
 def uppercase(str):
 	result = ""
 	for letter in str:
-		code = ord(str)
+		code = ord(letter)
 		calc = code - 32
 		result += chr(calc)
 
-	print(f"{result}", end="")
+	print("{}".format(result), end="")
