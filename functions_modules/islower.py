@@ -6,6 +6,6 @@ def islower(c):
     if len(c):
         code = ord(c)
         if 65 <= code <= 90:
-            print(f"'{c}' est une majuscule.")
+            return False
         elif 97 <= code <= 122:
-            print(f"'{c}' est une minuscule.")
+            return True
