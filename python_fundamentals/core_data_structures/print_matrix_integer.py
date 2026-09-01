@@ -6,4 +6,5 @@ def print_matrix_integer(matrix=[[]]):
             if (number < len(lists) - 1):
                 print("{:d}".format(lists[number]),  end=" ")
             else:
-                print("{:d}".format(lists[number]))
+                print("{:d}".format(lists[number]),  end="")
+        print()
