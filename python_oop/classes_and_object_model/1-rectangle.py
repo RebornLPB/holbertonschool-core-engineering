@@ -5,12 +5,12 @@ Module 1-rectangle
 Reinforce object modeling with a second class.
 """
 
+
 class Rectangle:
     """Rectangle shape"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-
 
     @property
     def width(self):
@@ -35,7 +35,3 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-
-
-
