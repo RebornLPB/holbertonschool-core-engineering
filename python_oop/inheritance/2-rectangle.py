@@ -11,9 +11,9 @@ BaseGeometry = __import__('base_geometry').BaseGeometry
 class Rectangle(BaseGeometry):
     """Rectangle class from BaseGeometry"""
     def __init__(self, width, height):
-        self.integer_validator("width", width)
+        self.integer_validator("Rectangle", width)
         self.__width = width
-        self.integer_validator("height", height)
+        self.integer_validator("Rectangle", height)
         self.__height = height
 
     def area(self):
