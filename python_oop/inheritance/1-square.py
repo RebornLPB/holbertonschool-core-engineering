@@ -11,7 +11,7 @@ Rectangle = __import__('2-rectangle').Rectangle
 class Square(Rectangle):
     """Square class from Rectangle"""
     def __init__(self, size):
-        self.integer_validator("Square", size)
+        self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
