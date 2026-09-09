@@ -10,7 +10,7 @@ BaseGeometry = __import__('base_geometry').BaseGeometry
 class Rectangle(BaseGeometry):
     """Rectangle class from BaseGeometry"""
     def __init__(self, width, height):
-        if BaseGeometry.integer_validator(self, "Rectangle", width):
-            self.__width = width
-        if BaseGeometry.integer_validator(self, "Rectangle", height):
-            self.__height = height
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
