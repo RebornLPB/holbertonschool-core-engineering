@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-
+"""Module 0-polymorphism_demo
+First polymorphism used so far"""
 class Animal:
+    """First polymorphism used so far"""
     def speak(self):
         return "Some sound"
 
