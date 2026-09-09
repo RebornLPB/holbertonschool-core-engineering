@@ -2,6 +2,8 @@
 
 """Module 1-rectangle
 Creation of Rectangle class from the base_geometry module"""
+
+
 BaseGeometry = __import__('base_geometry')
 
 class Rectangle(BaseGeometry):
