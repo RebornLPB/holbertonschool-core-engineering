@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Module 0-polymorphism_demo
 First polymorphism used so far"""
+
+
 class Animal:
     """First polymorphism used so far"""
     def speak(self):
@@ -30,4 +32,3 @@ dog = Dog()
 print(isinstance(dog, Dog))
 print(isinstance(dog, Animal))
 print(issubclass(dog, Animal))
-
