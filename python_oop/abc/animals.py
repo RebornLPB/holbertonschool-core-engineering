@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+"""Module animals
+Class Animal with abstract method"""
+
 from abc import ABC, abstractmethod
 
 class Animal(ABC):
