@@ -7,6 +7,8 @@ The script runs but produces wrong totals due to bad data propagation
 across multiple functions.
 """
 
+# Added print to check the subtotal and rate in compute_final_total function
+
 
 def parse_discount_rate(percent_text):
     """Convert percentage text to decimal rate (e.g. '10' -> 0.10)."""
@@ -31,6 +33,9 @@ def compute_final_total(items, discount_text):
     """Compute final total from cart rows and textual discount."""
     subtotal = compute_subtotal(items)
     rate = parse_discount_rate(discount_text)
+    print(f"Debug: subtotal = {subtotal}")
+    print(f"Debug: rate = {rate}")
+
     discounted_amount = apply_discount(subtotal, rate)
     return round(discounted_amount, 2)
 
