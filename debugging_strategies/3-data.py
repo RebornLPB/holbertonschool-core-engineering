@@ -16,7 +16,7 @@ across multiple functions.
 # No issue found for apply_discount
 # Issue found into the parse_discount_rate:
 # The function takes "10" and returns "10.0" instead of 10.0 / 100.0
-# Fix: remove prints, return value / 100.0 instead of value
+# Fix: remove prints, return value / 100.0 instead of only value
 
 def parse_discount_rate(percent_text):
     """Convert percentage text to decimal rate (e.g. '10' -> 0.10)."""
