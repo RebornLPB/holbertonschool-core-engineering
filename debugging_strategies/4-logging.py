@@ -7,6 +7,8 @@ The script runs but average is wrong due to a counting bug. Logging is
 intended to make the issue visible quickly.
 """
 
+# Change Info into Debug for the configure_logging (main function)
+
 import logging
 
 
@@ -52,7 +54,7 @@ def compute_average_valid(records):
 
 
 def main():
-    configure_logging(logging.INFO)
+    configure_logging(logging.DEBUG)
     records = [
         {"sensor_id": "A-1", "value": 10.0},
         {"sensor_id": "A-2", "value": 20.0},
