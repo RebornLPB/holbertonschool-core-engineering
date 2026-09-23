@@ -15,7 +15,12 @@ intended to make the issue visible quickly.
 # - valid_value_sum / valid_count can't happen if 0
 # if the list is empty, valid_count would be equal to 0, the program will crash (ZeroDivisionError)
 # - Nothing checks if the value isn't too high or negative
-
+#
+# Fix:
+# - Checking if record is a dictionnary in is_valid_record()
+# - Adding validation for records type (check if None or not list/tuple) in compute_average_valid()
+# - Skipping non-dictionnary elements inside the loop with a warning
+# - Adding a check for valid_count == 0 to return 0.0 and avoid ZeroDivisionError
 
 
 import logging
@@ -28,35 +33,54 @@ def configure_logging(level=logging.INFO):
 
 def is_valid_record(record):
     """Return True when record has non-empty id and numeric value."""
-    return bool(record.get("sensor_id")) and isinstance(record.get("value"), (int, float))
+    if not isinstance(record, dict):
+        return False
+
+    sensor_id = record.get("sensor_id")
+    value = record.get("value")
+
+    is_id_ok = isinstance(sensor_id, str) and bool(sensor_id.strip())
+    is_value_ok = isinstance(value, (int, float)) and not isinstance(value, bool)
+    return is_id_ok and is_value_ok
 
 
 def compute_average_valid(records):
     """Return average value considering only valid records."""
+    # Fix 1: Valider le paramètre d'entrée 'records'
+    if records is None:
+        raise ValueError("records argument cannot be None")
+
+    if not isinstance(records, (list, tuple)):
+        raise TypeError(f"expected list or tuple, got {type(records).__name__}")
+
     valid_value_sum = 0.0
-    processed_count = 0
+    valid_count = 0
 
     for record in records:
+        if not isinstance(record, dict):
+            logging.warning("ignored non-dict item in records: %r", record)
+            continue
+
         sensor_id = record.get("sensor_id")
         value = record.get("value")
         logging.debug("processing record sensor_id=%r value=%r", sensor_id, value)
 
         if is_valid_record(record):
             valid_value_sum += value
+            valid_count += 1
             logging.info("accepted sensor_id=%s value=%s", sensor_id, value)
         else:
             logging.warning("ignored invalid record sensor_id=%r value=%r", sensor_id, value)
 
-        processed_count += 1
-
-    if processed_count == 0:
+    if valid_count == 0:
+        logging.warning("no valid records found to compute average")
         return 0.0
 
-    avg = round(valid_value_sum / processed_count, 2)
+    avg = round(valid_value_sum / valid_count, 2)
     logging.info(
-        "final valid_value_sum=%s processed_count=%s average=%s",
+        "final valid_value_sum=%s valid_count=%s average=%s",
         valid_value_sum,
-        processed_count,
+        valid_count,
         avg,
     )
     return avg
