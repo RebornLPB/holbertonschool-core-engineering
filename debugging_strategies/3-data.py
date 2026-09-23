@@ -8,7 +8,9 @@ across multiple functions.
 """
 
 # Added print to check the subtotal and rate in compute_final_total function
-
+# The prints returns subtotal = 31.8, rate = 10.0
+# The issue comes probably from the discount(rate)
+# Added a print to check the discounted_amount
 
 def parse_discount_rate(percent_text):
     """Convert percentage text to decimal rate (e.g. '10' -> 0.10)."""
@@ -37,6 +39,7 @@ def compute_final_total(items, discount_text):
     print(f"Debug: rate = {rate}")
 
     discounted_amount = apply_discount(subtotal, rate)
+    print(f"Debug: discounted_amount = {discounted_amount}")
     return round(discounted_amount, 2)
 
 
