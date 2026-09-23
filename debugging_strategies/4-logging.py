@@ -8,6 +8,11 @@ intended to make the issue visible quickly.
 """
 
 # Change Info into Debug for the configure_logging (main function)
+# valid_value_sum = 60 but processed_count = 4 instead of 3
+# So we can understand that 60/4 = 15 instead of 60/3 = 20
+# Fix: Simply moving the incrementation inside
+#       the conditon in compute_average_valid
+# Revert the configure_logging
 
 import logging
 
@@ -35,10 +40,10 @@ def compute_average_valid(records):
         if is_valid_record(record):
             valid_value_sum += value
             logging.info("accepted sensor_id=%s value=%s", sensor_id, value)
+            processed_count += 1
         else:
             logging.warning("ignored invalid record sensor_id=%r value=%r", sensor_id, value)
 
-        processed_count += 1
 
     if processed_count == 0:
         return 0.0
@@ -54,7 +59,7 @@ def compute_average_valid(records):
 
 
 def main():
-    configure_logging(logging.DEBUG)
+    configure_logging(logging.INFO)
     records = [
         {"sensor_id": "A-1", "value": 10.0},
         {"sensor_id": "A-2", "value": 20.0},
