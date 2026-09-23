@@ -9,7 +9,10 @@ There are several spots where temporary print() calls can help inspect
 state during the loop.
 """
 
-#Added 3 print to check differents values
+# Added 3 print to check differents values
+# After checking the values, we can notice that the reading_is_ok is wrong.
+# We should have the comparison sign >= instead of <.
+# Fix: change the comparison sign (and remove the debug prints).
 
 def reading_is_ok(value, threshold):
     """
