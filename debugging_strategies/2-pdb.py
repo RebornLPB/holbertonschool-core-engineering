@@ -8,7 +8,7 @@ ad-hoc prints.
 """
 
 # Added a breakpoint to check the code with pdb
-
+# Issue found: raw_sum adds the raw value instead of the adjusted value.
 
 def normalize_score(raw, bonus):
     """Apply bonus and cap score at 100."""
