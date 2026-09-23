@@ -18,6 +18,7 @@ def normalize_score(raw, bonus):
 
 def compute_adjusted_average(scores, bonus):
     """Return rounded average after normalization."""
+    breakpoint()
     raw_sum = 0
     count = 0
 
