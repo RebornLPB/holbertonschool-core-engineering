@@ -9,6 +9,7 @@ ad-hoc prints.
 
 # Added a breakpoint to check the code with pdb
 # Issue found: raw_sum adds the raw value instead of the adjusted value.
+# Fix: changes "raw" for "adjusted" and remove the breakpoint
 
 def normalize_score(raw, bonus):
     """Apply bonus and cap score at 100."""
@@ -20,13 +21,12 @@ def normalize_score(raw, bonus):
 
 def compute_adjusted_average(scores, bonus):
     """Return rounded average after normalization."""
-    breakpoint()
     raw_sum = 0
     count = 0
 
     for raw in scores:
         adjusted = normalize_score(raw, bonus)
-        raw_sum += raw
+        raw_sum += adjusted
         count += 1
 
     if count == 0:
