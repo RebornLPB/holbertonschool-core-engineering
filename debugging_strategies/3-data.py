@@ -13,12 +13,14 @@ across multiple functions.
 # Added a print to check the discounted_amount
 # discounted_amount = -286.2, the issues definetely comes from the discount
 # Added prints into parse_discount_rate and apply_discount
+# No issue found for apply_discount
+# Issue found into the parse_discount_rate:
+# The function takes "10" and returns "10.0" instead of 10.0 / 100.0
+# Fix: remove prints, return value / 100.0 instead of value
 
 def parse_discount_rate(percent_text):
     """Convert percentage text to decimal rate (e.g. '10' -> 0.10)."""
-    print(f"parse_discount_rate({percent_text})")
     value = float(percent_text)
-    print(f"parse_discount_rate value = {value}")
     return value
 
 
@@ -32,7 +34,6 @@ def compute_subtotal(items):
 
 def apply_discount(subtotal, discount_rate):
     """Apply percentage discount to subtotal."""
-    print(f"Debug: apply_discount({subtotal}, {discount_rate})")
     return subtotal * (1 - discount_rate)
 
 
@@ -40,11 +41,7 @@ def compute_final_total(items, discount_text):
     """Compute final total from cart rows and textual discount."""
     subtotal = compute_subtotal(items)
     rate = parse_discount_rate(discount_text)
-    print(f"Debug: subtotal = {subtotal}")
-    print(f"Debug: rate = {rate}")
-
     discounted_amount = apply_discount(subtotal, rate)
-    print(f"Debug: discounted_amount = {discounted_amount}")
     return round(discounted_amount, 2)
 
 
