@@ -11,7 +11,8 @@ This script is intentionally broken for debugging practice.
 #
 # Fix : change the str into an int
 # 2 options here, int(value) or simply remove the quotes.
-# I'll use int()
+# I'll use int() since it's supposed to come from a file or api,
+# It is safer to use int() rather than removing the quotes
 
 def accumulate_readings(values):
     """Sum all readings into a single running sum."""
