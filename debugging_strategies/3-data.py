@@ -11,10 +11,14 @@ across multiple functions.
 # The prints returns subtotal = 31.8, rate = 10.0
 # The issue comes probably from the discount(rate)
 # Added a print to check the discounted_amount
+# discounted_amount = -286.2, the issues definetely comes from the discount
+# Added prints into parse_discount_rate and apply_discount
 
 def parse_discount_rate(percent_text):
     """Convert percentage text to decimal rate (e.g. '10' -> 0.10)."""
+    print(f"parse_discount_rate({percent_text})")
     value = float(percent_text)
+    print(f"parse_discount_rate value = {value}")
     return value
 
 
@@ -28,6 +32,7 @@ def compute_subtotal(items):
 
 def apply_discount(subtotal, discount_rate):
     """Apply percentage discount to subtotal."""
+    print(f"Debug: apply_discount({subtotal}, {discount_rate})")
     return subtotal * (1 - discount_rate)
 
 
