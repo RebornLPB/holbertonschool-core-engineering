@@ -7,6 +7,8 @@ is wrong due to a logic bug that is easier to isolate with pdb than with
 ad-hoc prints.
 """
 
+# Added a breakpoint to check the code with pdb
+
 
 def normalize_score(raw, bonus):
     """Apply bonus and cap score at 100."""
