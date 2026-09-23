@@ -20,8 +20,7 @@ def reading_is_ok(value, threshold):
 
     (Per spec: "OK" means value is at or above the threshold.)
     """
-    print(f"Debug: {value} >= {threshold} = {value < threshold}")
-    return value < threshold
+    return value >= threshold
 
 
 def count_ok_readings(readings, threshold):
@@ -29,11 +28,9 @@ def count_ok_readings(readings, threshold):
     ok_count = 0
     index = 0
     for value in readings:
-        print(f"Debug: value = {value}")
         passes = reading_is_ok(value, threshold)
         if passes:
             ok_count += 1
-            print(f"Debug: count = {ok_count}")
         index += 1
     return ok_count
 
