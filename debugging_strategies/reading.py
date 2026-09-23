@@ -6,10 +6,18 @@ Batch summary for a stub sensor: sum numeric readings.
 This script is intentionally broken for debugging practice.
 """
 
+# Issue found: running_sum (line 15) is an int
+# the value (from load_today_batch) is a str
+#
+# Fix : change the str into an int
+# 2 options here, int(value) or simply remove the quotes.
+# I'll use int()
+
 def accumulate_readings(values):
     """Sum all readings into a single running sum."""
     running_sum = 0
     for value in values:
+        value = int(value)
         running_sum += value
     return running_sum
 
