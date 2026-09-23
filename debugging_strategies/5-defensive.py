@@ -7,6 +7,17 @@ The script runs but average is wrong due to a counting bug. Logging is
 intended to make the issue visible quickly.
 """
 
+# Review observations (compute_average_valid):
+# - records is supposed to be a list,
+# if we send him none or an int the program crash with a TypeError
+# - each records is supposed to be a dictionnary
+# if an element of the list is None or an str, the program crash too.
+# - valid_value_sum / valid_count can't happen if 0
+# if the list is empty, valid_count would be equal to 0, the program will crash (ZeroDivisionError)
+# - Nothing checks if the value isn't too high or negative
+
+
+
 import logging
 
 
