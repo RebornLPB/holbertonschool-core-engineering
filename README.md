@@ -10,7 +10,7 @@ The goal of this track is to build solid Python foundations, understand how obje
 ## 🛠️ General Requirements & Environment
 * **OS:** Ubuntu 20.04 LTS
 * **Interpreter:** `python3` (version 3.8.5+)
-* **Style Guide:** All Python source files strictly comply with **PEP 8** (verified via `pycodestyle`).
+* **Style Guide:** All Python source files are meant to follow **PEP 8** (check with `pycodestyle`).
 * **Execution:** All Python files are executable (`chmod +x`) and start with `#!/usr/bin/env python3`.
 
 ---
