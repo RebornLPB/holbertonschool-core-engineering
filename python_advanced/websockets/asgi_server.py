@@ -5,7 +5,7 @@ from starlette.routing import Route, WebSocketRoute
 
 
 async def homepage(request):
-    return HTMLResponse("<h1>Websocket Echo</h1>")
+    return HTMLResponse("<h1>WebSocket Echo</h1>")
 
 
 async def websocket_endpoint(websocket):
