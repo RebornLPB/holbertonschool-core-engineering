@@ -11,7 +11,7 @@ async def connection_handler(websocket):
         async for message in websocket:
             await websocket.send(f"U:{message}")
     finally:
-         connected_clients.remove(websocket)
+        connected_clients.remove(websocket)
 
 
 async def main():
